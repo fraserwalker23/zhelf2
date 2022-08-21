@@ -7,7 +7,7 @@ dynamic_url_generation = function(df, host){
   # df must have episode Name, Season, Episode
   # append url to df
   #
-  browser()
+  #browser()
   
   df$url = host
   # season 7-11 need an additional "-season-#"
