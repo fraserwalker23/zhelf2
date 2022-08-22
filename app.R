@@ -36,7 +36,7 @@ ui <- fluidPage(
 # Define server logic required to draw a histogram
 server <- function(input, output) {
   
-  load("simpsons.RData") # simpsons data frame
+  simpsons = readRDS("./simpsons.RDS") # simpsons data frame
   
   simpsons_reactive = reactive({
     filter(simpsons, Season <= input$seasonInput[2] & 
@@ -50,7 +50,7 @@ server <- function(input, output) {
   
   link <- reactive({
     dfLink <- episode()
-    a(dfLink$Name, href = dynamic_webscraping(s=dfLink$Season,e=dfLink$Episode))
+    a(dfLink$Name, href = dfLink$href, target="_blank")
   })
   
   output$linkOutput <- renderUI({
