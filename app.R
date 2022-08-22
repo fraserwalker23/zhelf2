@@ -2,14 +2,7 @@
 # random simpsons episode generator with links
 
 library(shiny)
-library(rvest)
-library(tidyverse)
-library(magrittr)
-library(scales)
-library(knitr)
-library(lubridate)
-library(tibble)
-library(tm)
+library(dplyr)
 
 source("dynamic_webscraping.R")
 
@@ -64,14 +57,7 @@ server <- function(input, output) {
     tagList("URL Link:", link())
   })
   
-  #observe({print(finalurl())})
-  #observe({print(dim(simpsons()))})
-  #observe({print(input$runInput)})
-  #observe({print(input$seasonInput[1])})
-  #observe({print(simpsons_reactive()[1,11])})
   observe({print(episode())})
-  #observe({print(link())})
-  
 }
 
 # Run the application 
